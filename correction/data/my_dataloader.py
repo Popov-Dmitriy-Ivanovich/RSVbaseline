@@ -25,12 +25,12 @@ class WRFNPDataset(Dataset):
         if(self.processed):
             return
         self.land_mask = np.load('landmask.npy')
-        for i in range (1,len(self.land_mask)-1):
-            for j in range (1,len(self.land_mask)-1):
-                if self.land_mask[i][j] == 0:
-                    self.land_mask[i][j] = max (self.land_mask[i-1][j],self.land_mask[i+1][j],self.land_mask[i][j+1],self.land_mask[i][j-1])/gradient_mult
-                if (self.land_mask[i][j]==1):
-                    self.land_mask[i][j] = max (self.land_mask[i-1][j],self.land_mask[i+1][j],self.land_mask[i][j+1],self.land_mask[i][j-1])*gradient_mult
+        #for i in range (1,len(self.land_mask)-1):
+        #    for j in range (1,len(self.land_mask)-1):
+        #        if self.land_mask[i][j] == 0:
+        #            self.land_mask[i][j] = max (self.land_mask[i-1][j],self.land_mask[i+1][j],self.land_mask[i][j+1],self.land_mask[i][j-1])/gradient_mult
+        #        if (self.land_mask[i][j]==1):
+        #            self.land_mask[i][j] = max (self.land_mask[i-1][j],self.land_mask[i+1][j],self.land_mask[i][j+1],self.land_mask[i][j-1])*gradient_mult
         self.processed = True
     
     def get_data_by_id(self, i, file_attr, var_attr):
