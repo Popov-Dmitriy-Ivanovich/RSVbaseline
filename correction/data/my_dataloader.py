@@ -41,7 +41,7 @@ class WRFNPDataset(Dataset):
             file_vars = np.load(getattr(self, file_attr)[path_i])
 
             res=[]
-            self.process_land_mask(1.02)
+            self.process_land_mask(1)
             land_mask = self.land_mask
             if(len(file_vars[0][0])==210):
                 for i in range (0,len(file_vars)):
