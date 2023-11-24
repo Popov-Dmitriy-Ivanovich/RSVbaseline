@@ -49,7 +49,7 @@ if __name__ == "__main__":
     meaner = MeanToERA5(os.path.join(cfg.GLOBAL.BASE_DIR, 'wrferaMapping.npy'))
     criterion = TurbulentMSE(meaner, beta=0, logger=logger).to(cfg.GLOBAL.DEVICE)
 
-    model = ConstantBias(3).to(cfg.GLOBAL.DEVICE)
+    model = ConstantBias(4).to(cfg.GLOBAL.DEVICE)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=LR, weight_decay=1e-5)
     mult_step_scheduler = lr_scheduler.MultiStepLR(optimizer, milestones=[30, 40], gamma=0.1)

@@ -14,6 +14,9 @@ class TurbulentMSE(nn.Module):
             logger.set_beta(beta)
 
     def forward(self, orig, corr, target, logger=None):
+        orig = orig[:,:,:-1]
+        corr = corr[:,:,:-1]
+        target = target[:,:,:-1]
         mean_corr = self.meaner(corr)
 
         t = target.view(*target.shape[:-2], target.shape[-1] * target.shape[-2])
