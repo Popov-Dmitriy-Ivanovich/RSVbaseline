@@ -23,8 +23,8 @@ if __name__ == "__main__":
 
     LR = 1e-4
 
-    wrf_folder = '/home/wrf_data'
-    era_folder = '/home/era_data'
+    wrf_folder = '/home/dmitriy/wrf'
+    era_folder = '/home/dmitriy/era'
 
     print('Splitting train val test...')
     train_files, val_files, test_files = split_train_val_test(wrf_folder, era_folder, 0.7, 0.1, 0.2)
